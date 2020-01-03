@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.hj.app.domain.DevUser" alias="DevUser"/>
+        <typeAlias type="com.hj.app.domain.AppInfo" alias="AppInfo"/>
+        <typeAlias type="com.hj.app.domain.AppVersion" alias="AppVersion"/>
+        <typeAlias type="com.hj.app.domain.BackendUser" alias="BackendUser"/>
+        <typeAlias type="com.hj.app.domain.DataDictionary" alias="DataDictionary"/>
+        <typeAlias type="com.hj.app.domain.AppCategory" alias="AppCategory"/>
+    </typeAliases>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="reasonable" value="true"/>
+        </plugin>
+    </plugins>
+    <mappers>
+        <mapper resource="com/hj/app/dao/DevUserMapper.xml"/>
+        <mapper resource="com/hj/app/dao/AppInfoMapper.xml"/>
+        <mapper resource="com/hj/app/dao/AppVersionMapper.xml"/>
+        <mapper resource="com/hj/app/dao/BackendUserMapper.xml"/>
+        <mapper resource="com/hj/app/dao/DataDictionaryMapper.xml"/>
+        <mapper resource="com/hj/app/dao/AppCategoryMapper.xml"/>
+    </mappers>
+</configuration>
