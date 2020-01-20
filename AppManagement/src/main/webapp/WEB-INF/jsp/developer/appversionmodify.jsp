@@ -63,8 +63,9 @@
 									<td>${appVersion.versionSize }</td>
 									<td>${appVersion.publishStatusName }</td>
 									<td>
-									<a href="${appVersion.downloadLink }">${appVersion.apkFileName }</a>
+									<a href="${appVersion.downloadLink}">${appVersion.apkFileName}</a>
 									</td>
+                                    <%--格式化日期输出形式为年月日--%>
 									<td><fmt:formatDate value="${appVersion.modifyDate }" pattern="yyyy-MM-dd"/></td>
 								</tr>
 							</c:forEach>

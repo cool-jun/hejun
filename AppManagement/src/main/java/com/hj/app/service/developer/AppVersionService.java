@@ -27,4 +27,9 @@ public interface AppVersionService {
      * 删除apk文件
      */
     boolean deleteApkFile(Integer id);
+
+    /**
+     * 检查app版本号是否唯一
+     */
+    AppVersion checkVersionNo(Integer appId, String versionNo);
 }

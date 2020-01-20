@@ -57,4 +57,8 @@
 				apkFileName=null
 			where id = #{id}
 	</update>
+
+    <select id="checkVersionNo" resultType="AppVersion">
+        select * from app_version where appId = #{appId} and versionNo = #{versionNo}
+    </select>
 </mapper>

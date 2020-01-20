@@ -7,7 +7,7 @@ import com.hj.app.service.developer.AppInfoService;
 import com.hj.app.service.developer.AppVersionService;
 import com.hj.app.service.developer.DataDictionaryService;
 import com.hj.app.utils.Constants;
-import com.hj.app.utils.PageSupport;
+import com.hj.app.utils.Page;
 import com.mysql.jdbc.StringUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Controller;
@@ -44,10 +44,13 @@ public class DevAppInfoControl {
                                 @RequestParam(value = "queryCategoryLevel2", required = false) String _queryCategoryLevel2,
                                 @RequestParam(value = "queryCategoryLevel3", required = false) String _queryCategoryLevel3,
                                 @RequestParam(value = "pageIndex", required = false) String pageIndex) {
+
         Integer devId = ((DevUser)session.getAttribute(Constants.DEV_USER_SESSION)).getId();
+
         List<AppInfo> appInfoList;
         List<DataDictionary> statusList;
         List<DataDictionary> platFormList;
+
         //列出一级分类列表，二级和三级分类列表可通过异步ajax获取
         List<AppCategory> categoryLevel1List;
         List<AppCategory> categoryLevel2List;
@@ -90,7 +93,7 @@ public class DevAppInfoControl {
                 queryCategoryLevel3, queryPlatformId, devId);
 
         //总页数
-        PageSupport pages = new PageSupport();
+        Page pages = new Page();
         pages.setCurrentPageNo(currentPageNo);
         pages.setPageSize(pageSize);
         pages.setTotalCount(totalCount);
@@ -158,6 +161,24 @@ public class DevAppInfoControl {
         return getCategoryList(pid);
     }
 
+    /**
+     * 检查新增版本号是否唯一
+     * @param appId
+     * @param versionNo
+     * @return int
+     */
+    @RequestMapping("/checkVersionNo")
+    @ResponseBody
+    public int checkVersionId(@RequestParam int appId, @RequestParam String versionNo) {
+        AppVersion appVersion = appVersionService.checkVersionNo(appId, versionNo);
+        if (appVersion != null) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+
     public List<AppCategory> getCategoryList (String pid) {
         List<AppCategory> categoryLevelList;
         categoryLevelList = appCategoryService.getAppCategoryListByParentId(pid==null?null:Integer.parseInt(pid));
@@ -166,6 +187,7 @@ public class DevAppInfoControl {
 
     /**
      * 增加app信息（跳转到新增appinfo页面）
+     * @param appInfo
      */
     @RequestMapping("/appinfoadd")
     public String add(@ModelAttribute("appInfo") AppInfo appInfo) {
@@ -353,7 +375,6 @@ public class DevAppInfoControl {
             try {
                 appInfo = appInfoService.getAppInfo(null, APKName);
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
             if(null != appInfo)
@@ -435,16 +456,18 @@ public class DevAppInfoControl {
         }else if(null != fileUploadError && fileUploadError.equals("error3")){
             fileUploadError = Constants.FILEUPLOAD_ERROR_3;
         }
+
         try {
             appVersion = appVersionService.getAppVersionById(Integer.parseInt(versionId));
             appVersionList = appVersionService.getAppVersionList(Integer.parseInt(appId));
         }catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
         model.addAttribute(appVersion);
         model.addAttribute("appVersionList",appVersionList);
         model.addAttribute("fileUploadError",fileUploadError);
+
         return "developer/appversionmodify";
     }
 
@@ -475,9 +498,10 @@ public class DevAppInfoControl {
                             +"&aid="+appVersion.getAppId()
                             +"&error=error1";
                 }
+
                 apkFileName = apkName + "-" +appVersion.getVersionNo() + ".apk";
                 File targetfile = new File(path, apkFileName);
-                if(!targetfile.exists()){
+                if (!targetfile.exists()) {
                     targetfile.mkdirs();
                 }
                 try {
@@ -502,7 +526,7 @@ public class DevAppInfoControl {
         appVersion.setApkLocPath(apkLocPath);
         appVersion.setApkFileName(apkFileName);
         try {
-            if(appVersionService.modify(appVersion)){
+            if (appVersionService.modify(appVersion)){
                 return "redirect:/showAllAppInfo";
             }
         } catch (Exception e) {
@@ -616,7 +640,7 @@ public class DevAppInfoControl {
             resultMap.put("delResult", "notexist");
         }else{
             try {
-                if(appInfoService.appsysdeleteAppById(Integer.parseInt(id)))
+                if (appInfoService.appsysdeleteAppById(Integer.parseInt(id)))
                     resultMap.put("delResult", "true");
                 else
                     resultMap.put("delResult", "false");
@@ -652,7 +676,7 @@ public class DevAppInfoControl {
 //            params.put("interfaceLanguage", interfaceLanguage);
 //        }
 //
-//        PageInfo<AppInfo> pageInfo = appInfoService.allAppsByPage(params);
+//        PageInfoFor<AppInfo> pageInfo = appInfoService.allAppsByPage(params);
 //
 //        model.addAttribute("pageInfo", pageInfo);
 //

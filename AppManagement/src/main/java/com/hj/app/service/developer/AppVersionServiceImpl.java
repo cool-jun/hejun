@@ -56,4 +56,9 @@ public class AppVersionServiceImpl implements AppVersionService {
         }
         return flag;
     }
+
+    @Override
+    public AppVersion checkVersionNo(Integer appId, String versionNo) {
+        return appVersionMapper.checkVersionNo(appId, versionNo);
+    }
 }

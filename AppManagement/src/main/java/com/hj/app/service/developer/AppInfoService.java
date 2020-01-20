@@ -46,5 +46,5 @@ public interface AppInfoService {
     boolean appsysUpdateSaleStatusByAppId(AppInfo appInfo) throws Exception;
 
 //    String listAllAppInfo(HttpSession session);
-//    PageInfo<AppInfo> allAppsByPage(Map<String,Object> params);
+//    PageInfoFor<AppInfo> allAppsByPage(Map<String,Object> params);
 }

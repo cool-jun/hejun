@@ -204,8 +204,8 @@ public class AppInfoServiceImpl implements AppInfoService {
 //    }
 //
 //    @Override
-//    public PageInfo<AppInfo> allAppsByPage(Map<String, Object> params) {
-//        PageInfo<AppInfo> pageInfo = new PageInfo<>();
+//    public PageInfoFor<AppInfo> allAppsByPage(Map<String, Object> params) {
+//        PageInfoFor<AppInfo> pageInfo = new PageInfoFor<>();
 //
 //        if(params.containsKey("pageNow")) {
 //            Integer pageNow = (Integer) params.get("pageNow");

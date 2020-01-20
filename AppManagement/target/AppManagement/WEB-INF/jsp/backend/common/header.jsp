@@ -67,7 +67,7 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="javascript:">后台用户管理</a></li>
+                      <li><a href="listalldev">后台用户管理</a></li>
                       <li><a href="javascript:">开发者资质审核</a></li>
                     </ul>
                   </li>

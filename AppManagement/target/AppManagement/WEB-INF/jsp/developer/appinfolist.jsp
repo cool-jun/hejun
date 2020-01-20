@@ -62,7 +62,7 @@
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">一级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
 								<select id="queryCategoryLevel1" name="queryCategoryLevel1" class="form-control">
-									<c:if test="${categoryLevel1List != null }">
+									<c:if test="${categoryLevel1List != null}">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel1List}">
 									   		<option <c:if test="${appCategory.id == queryCategoryLevel1 }">selected="selected"</c:if>
@@ -98,7 +98,7 @@
         							<c:if test="${categoryLevel3List != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel3List}">
-									   		<option <c:if test="${appCategory.id == queryCategoryLevel3 }">selected="selected"</c:if>
+									   		<option <c:if test="${appCategory.id == queryCategoryLevel3}">selected="selected"</c:if>
 									   		value="${appCategory.id}">${appCategory.categoryName}</option>
 									   </c:forEach>
 									</c:if>

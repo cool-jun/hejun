@@ -3,20 +3,17 @@ package com.hj.app.controller.backend;
 import com.hj.app.domain.*;
 import com.hj.app.service.backend.AppService;
 import com.hj.app.service.developer.AppCategoryService;
-import com.hj.app.service.developer.AppInfoService;
 import com.hj.app.service.developer.AppVersionService;
 import com.hj.app.service.developer.DataDictionaryService;
 import com.hj.app.utils.Constants;
-import com.hj.app.utils.PageSupport;
+import com.hj.app.utils.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -86,7 +83,8 @@ public class AppCheckControl {
                 queryCategoryLevel3, queryPlatformId);
 
         //总页数
-        PageSupport pages = new PageSupport();
+        Page pages = new Page();
+
         pages.setCurrentPageNo(currentPageNo);
         pages.setPageSize(pageSize);
         pages.setTotalCount(totalCount);

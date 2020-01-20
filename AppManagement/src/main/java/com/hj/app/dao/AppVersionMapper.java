@@ -21,4 +21,6 @@ public interface AppVersionMapper {
     int modify(AppVersion appVersion);
 
     int deleteApkFile(@Param("id") Integer id);
+
+    AppVersion checkVersionNo(@Param("appId") Integer appId, @Param("versionNo") String versionNo);
 }
