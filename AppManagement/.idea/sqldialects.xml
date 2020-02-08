@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hj/app/dao/AppCategoryMapper.xml" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hj/app/dao/AppInfoMapper.xml" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hj/app/dao/AppVersionMapper.xml" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hj/app/dao/BackendUserMapper.xml" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hj/app/dao/DataDictionaryMapper.xml" dialect="MariaDB" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/hj/app/dao/DevUserMapper.xml" dialect="MariaDB" />
+  </component>
+</project>

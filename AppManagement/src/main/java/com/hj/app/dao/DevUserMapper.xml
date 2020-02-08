@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hj.app.dao.DevUserMapper">
+    <select id="getLoginUser" resultType="DevUser">
+        select u.* from dev_user u
+        <trim prefix="where" prefixOverrides="and | or">
+        <if test="devCode != null">
+            and u.devCode = #{devCode}
+        </if>
+    </trim>
+    </select>
+
+    <select id="getDevInfoList" resultType="DevUser">
+        select * from dev_user d
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="devCode != null and devCode != ''">
+                and d.devCode like CONCAT ('%',#{devCode},'%')
+            </if>
+            <if test="devName != null and devName != ''">
+                and d.devName like CONCAT ('%',#{devName},'%')
+            </if>
+        </trim>
+        limit #{from},#{pageSize}
+    </select>
+
+    <select id="getDevInfoCount" resultType="Integer">
+        select count(*) as count from dev_user d
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="devCode != null and devCode != ''">
+                and d.devCode like CONCAT ('%',#{devCode},'%')
+            </if>
+            <if test="devName != null and devName != ''">
+                and d.devName like CONCAT ('%',#{devName},'%')
+            </if>
+        </trim>
+    </select>
+
+    <delete id="deleteDevById">
+        delete from dev_user where id = #{id}
+    </delete>
+
+    <select id="getDevUserById" resultType="DevUser">
+        select * from dev_user where id = #{id}
+    </select>
+
+    <update id="modifyDevUser">
+        update dev_user
+        <trim prefix="set" suffixOverrides="," suffix="where id=#{id}">
+            <if test="devCode != null">devCode=#{devCode},</if>
+            <if test="devName != null">devName=#{devName},</if>
+            <if test="devEmail != null">devEmail=#{devEmail},</if>
+            <if test="devInfo != null">devInfo=#{devInfo},</if>
+        </trim>
+    </update>
+
+    <!--<select id="checkUserName" resultType="String">-->
+        <!--select devName from dev_user where devName=#{devName}-->
+    <!--</select>-->
+</mapper>
