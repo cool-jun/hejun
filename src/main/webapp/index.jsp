@@ -1,10 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%@taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
-
-<title>后台管理系统</title>
-
+<title>app信息管理系统</title>
 <!-- Bootstrap -->
 <link href="${pageContext.request.contextPath }/statics/css/bootstrap.min.css" rel="stylesheet">
 <!-- Font Awesome -->
@@ -22,10 +19,10 @@
 <div class="login_wrapper">
     <h1>APP信息管理平台</h1>
     <div>
-        <a href="toBackEndUserLogin" class="btn btn-link">后台管理系统 入口</a>
+        <a href="toBackEndUserLogin" class="btn btn-link">后台管理系统入口</a>
     </div>
     <div>
-        <a href="toDevLogin" class="btn btn-link">开发者平台 入口</a>
+        <a href="todevlogin" class="btn btn-link">开发者平台入口</a>
     </div>
 </div>
 

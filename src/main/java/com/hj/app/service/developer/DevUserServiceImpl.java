@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 @Service
 public class DevUserServiceImpl implements DevUserService {
     @Resource
-    public DevUserMapper devUserMapper;
+    private DevUserMapper devUserMapper;
 
     @Override
     public DevUser login(String devCode, String devPassword) {

@@ -5,11 +5,11 @@
 <mapper namespace="com.hj.app.dao.DevUserMapper">
     <select id="getLoginUser" resultType="DevUser">
         select u.* from dev_user u
-        <trim prefix="where" prefixOverrides="and | or">
-        <if test="devCode != null">
-            and u.devCode = #{devCode}
-        </if>
-    </trim>
+        <trim prefix="where" prefixOverrides="and |or ">
+            <if test="devCode != null">
+                and u.devCode = #{devCode}
+            </if>
+        </trim>
     </select>
 
     <select id="getDevInfoList" resultType="DevUser">

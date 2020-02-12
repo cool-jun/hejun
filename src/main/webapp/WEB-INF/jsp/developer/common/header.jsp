@@ -1,8 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<!DOCTYPE html>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -39,8 +37,9 @@
 			<div class="col-md-3 left_col menu_fixed">
 				<div class="left_col scroll-view">
 					<div class="navbar nav_title" style="border: 0;">
-						<a href="paltform/main" class="site_title"><i class="fa fa-paw"></i> <span>APP
-								BMS</span>
+						<a href="platform/main" class="site_title">
+							<i class="fa fa-paw"></i>
+							<span>APP BMS</span>
 						</a>
 					</div>
 
@@ -60,7 +59,7 @@
 					</div>
 					<!-- /menu profile quick info -->
 
-					<br />
+					<br/>
 
 					<!-- sidebar menu -->
 					<div id="sidebar-menu"
@@ -76,12 +75,12 @@
 										</li>
 										<li><a href="javascript:">个人账户信息维护</a>
 										</li>
-									</ul></li>
+									</ul>
+                                </li>
 								<li><a><i class="fa fa-edit"></i> APP应用管理<span
 										class="fa fa-chevron-down"></span>
 								</a>
 									<ul class="nav child_menu">
-										<%--<li><a href="showAppInfo.do?devId=${sessionScope.users.id}">APP维护</a>--%>
 										<li><a href="showAllAppInfo">APP维护</a>
 										</li>
 									</ul></li>
@@ -125,9 +124,7 @@
 									alt="">${devUserSession.devName} <span
 									class=" fa fa-angle-down"></span> </a>
 								<ul class="dropdown-menu dropdown-usermenu pull-right">
-									<li><a
-										href="logout"><i
-											class="fa fa-sign-out pull-right"></i> Log Out</a>
+									<li><a href="logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
 									</li>
 								</ul></li>
 

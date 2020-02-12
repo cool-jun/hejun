@@ -1,16 +1,15 @@
 package com.hj.app.dao;
 
 import com.hj.app.domain.DevUser;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
-@Repository("devUser")
-@Mapper
 public interface DevUserMapper {
-
+    /**
+     * 根据devCode获取用户记录
+     * @param devCode
+     * @return
+     */
     DevUser getLoginUser(@Param("devCode") String devCode);
     int getDevInfoCount(@Param(value = "devCode") String devCode, @Param(value = "devName") String devName);
     List<DevUser> getDevInfoList(@Param(value = "devCode") String devCode,

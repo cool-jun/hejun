@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 
-@Service("appInfoService")
+@Service
 @Transactional
 public class AppInfoServiceImpl implements AppInfoService {
     @Resource

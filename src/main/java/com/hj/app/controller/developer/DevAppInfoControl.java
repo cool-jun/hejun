@@ -25,7 +25,6 @@ import java.util.List;
 
 @Controller
 public class DevAppInfoControl {
-
     @Resource
     private AppInfoService appInfoService;
     @Resource
@@ -35,7 +34,7 @@ public class DevAppInfoControl {
     @Resource
     private DataDictionaryService dataDictionaryService;
 
-    @RequestMapping("showAllAppInfo")
+    @RequestMapping("/showAllAppInfo")
     public String getAllAppInfo(Model model, HttpSession session,
                                 @RequestParam(value = "querySoftwareName", required = false) String querySoftwareName,
                                 @RequestParam(value = "queryStatus", required = false) String _queryStatus,

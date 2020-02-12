@@ -15,16 +15,23 @@ public interface AppInfoService {
                         Integer queryCategoryLevel3, Integer queryPlatformId, Integer devId);
 
     /**
-     * 新增app
+     * 新增app信息
+     * @param appInfo
+     * @return
      */
     boolean add(AppInfo appInfo);
+
     /**
      * 修改app信息
+     * @param appInfo
+     * @return
      */
     boolean modify(AppInfo appInfo);
 
     /**
-     * 根据appId删除app应用
+     * 根据appId删除app信息
+     * @param delId
+     * @return
      */
     boolean deleteAppInfoById(Integer delId);
 
@@ -44,7 +51,4 @@ public interface AppInfoService {
 
 
     boolean appsysUpdateSaleStatusByAppId(AppInfo appInfo) throws Exception;
-
-//    String listAllAppInfo(HttpSession session);
-//    PageInfoFor<AppInfo> allAppsByPage(Map<String,Object> params);
 }

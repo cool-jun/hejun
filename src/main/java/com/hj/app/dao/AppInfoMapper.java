@@ -1,14 +1,10 @@
 package com.hj.app.dao;
 
 import com.hj.app.domain.AppInfo;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("appInfo")
-@Mapper
 public interface AppInfoMapper {
     List<AppInfo> listAllAppInfo(@Param(value = "softwareName") String querySoftwareName,
                                  @Param(value = "status") Integer queryStatus,
@@ -43,7 +39,4 @@ public interface AppInfoMapper {
     int modify(AppInfo appInfo);
 
     int deleteAppInfoById(@Param(value = "id") Integer delId);
-
-//    int countApps(@Param("params") Map<String,Object> params);
-//    List<AppInfo> selectByPage(@Param("params") Map<String, Object> params);
 }

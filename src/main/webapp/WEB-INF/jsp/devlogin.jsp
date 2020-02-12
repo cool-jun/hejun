@@ -1,8 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -33,7 +31,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form:form action="login.do" method="post">
+            <form:form action="devlogin" method="post">
               <h1>APP开发者平台</h1>
               <div>
                 <input type="text" class="form-control" name="devCode" placeholder="请输入账号" required="" />
@@ -43,13 +41,11 @@
               </div>
               <span>${error}</span>
               <div>
-              	<button type="submit" class="btn btn-success">登     录</button>
-              	<button type="reset" class="btn btn-default">重　填</button>
+              	<button type="submit" class="btn btn-success">登 录</button>
+              	<button type="reset" class="btn btn-default">重 填</button>
                 <%--<button type="button" class="btn btn-success" onclick="window.location.href = 'devregister.jsp'">注     册</button>--%>
               </div>
-
               <div class="clearfix"></div>
-
               <div class="separator">
                 <div>
                   <p>©2019 All Rights Reserved. </p>
