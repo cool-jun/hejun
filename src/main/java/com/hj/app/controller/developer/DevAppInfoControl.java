@@ -201,6 +201,11 @@ public class DevAppInfoControl {
 
     /**
      * 保存新增appInfo（主表）的数据
+     * @param appInfo
+     * @param session
+     * @param request
+     * @param attach
+     * @return
      */
     @RequestMapping("/appinfoaddsave")
     public String addSave(AppInfo appInfo, HttpSession session, HttpServletRequest request,
@@ -208,19 +213,20 @@ public class DevAppInfoControl {
 
         String logoPicPath =  null;
         String logoLocPath =  null;
-        if(!attach.isEmpty()){
-            String path = request.getSession().getServletContext().getRealPath("statics"+java.io.File.separator+"uploadfiles");
-            String oldFileName = attach.getOriginalFilename();//原文件名
-            String prefix = FilenameUtils.getExtension(oldFileName);//原文件后缀
+        if (!attach.isEmpty()) {
+            String path = request.getSession().getServletContext().getRealPath("statics" +
+                    java.io.File.separator + "uploadfiles");
+            String oldFileName = attach.getOriginalFilename(); //原文件名
+            String prefix = FilenameUtils.getExtension(oldFileName); //原文件后缀
             int fileSize = 500000;
-            if(attach.getSize() > fileSize){//上传大小不得超过 50k
+            if (attach.getSize() > fileSize) { //上传大小不得超过500k
                 request.setAttribute("fileUploadError", Constants.FILEUPLOAD_ERROR_4);
                 return "developer/appinfoadd";
-            }else if(prefix.equalsIgnoreCase("jpg") || prefix.equalsIgnoreCase("png")
-                    ||prefix.equalsIgnoreCase("jepg") || prefix.equalsIgnoreCase("pneg")){//上传图片格式
-                String fileName = appInfo.getAPKName() + ".jpg";//上传LOGO图片命名:apk名称.apk
+            }else if (prefix.equalsIgnoreCase("jpg") || prefix.equalsIgnoreCase("png")
+                    || prefix.equalsIgnoreCase("jepg") || prefix.equalsIgnoreCase("pneg")) { //上传图片格式
+                String fileName = appInfo.getAPKName() + ".jpg"; //上传LOGO图片命名:apk名称.apk
                 File targetFile = new File(path,fileName);
-                if(!targetFile.exists()){
+                if (!targetFile.exists()){
                     targetFile.mkdirs();
                 }
                 try {
@@ -230,8 +236,8 @@ public class DevAppInfoControl {
                     request.setAttribute("fileUploadError", Constants.FILEUPLOAD_ERROR_2);
                     return "developer/appinfoadd";
                 }
-                logoPicPath = request.getContextPath()+"/statics/uploadfiles/"+fileName;
-                logoLocPath = path+File.separator+fileName;
+                logoPicPath = request.getContextPath() + "/statics/uploadfiles/" + fileName;
+                logoLocPath = path + File.separator + fileName;
             }else{
                 request.setAttribute("fileUploadError", Constants.FILEUPLOAD_ERROR_3);
                 return "developer/appinfoadd";
@@ -368,12 +374,14 @@ public class DevAppInfoControl {
 
     /**
      * 判断APKName是否唯一
+     * @param APKName
+     * @return
      */
     @RequestMapping("/apkexist.json")
     @ResponseBody
-    public Object apkNameIsExit(@RequestParam String APKName){
-        HashMap<String, String> resultMap = new HashMap<String, String>();
-        if(StringUtils.isNullOrEmpty(APKName)){
+    public Object apkNameIsExit(@RequestParam String APKName) {
+        HashMap<String, String> resultMap = new HashMap<>();
+        if (StringUtils.isNullOrEmpty(APKName)) {
             resultMap.put("APKName", "empty");
         }else{
             AppInfo appInfo = null;
@@ -382,7 +390,7 @@ public class DevAppInfoControl {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if(null != appInfo)
+            if (null != appInfo)
                 resultMap.put("APKName", "exist");
             else
                 resultMap.put("APKName", "noexist");

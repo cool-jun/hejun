@@ -9,15 +9,7 @@
              <div class="clearfix"></div>
       </div>
       <div class="x_content">
-	  <!-- <div class="item form-group">
-               <label class="control-label col-md-3 col-sm-3 col-xs-12" ></label>
-               <div class="col-md-6 col-sm-6 col-xs-12">
-                 <form action="uploadlogo" class="dropzone" style="height:100px;">
-                 </form>
-            <div class="clearfix"></div>
-         </div>
-       </div> -->
-           <div class="clearfix"></div>
+        <div class="clearfix"></div>
         <form class="form-horizontal form-label-left" action="appinfoaddsave" method="post" enctype="multipart/form-data">
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">软件名称 <span class="required">*</span>
@@ -77,7 +69,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="select">所属平台 <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select name="flatformId" id="flatformId" class="form-control"   required="required"></select>
+              <select name="platformId" id="platformId" class="form-control"   required="required"></select>
             </div>
           </div>
           
@@ -121,15 +113,14 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="file" class="form-control col-md-7 col-xs-12" name="a_logoPicPath"  required="required" id="a_logoPicPath"/>
-            ${fileUploadError }
+            ${fileUploadError}
             </div>
           </div>
           <div class="ln_solid"></div>
           <div class="form-group">
             <div class="col-md-6 col-md-offset-3">
               <button id="send" type="submit" class="btn btn-success">保存</button>
-                <button type="button" class="btn btn-primary" onclick="window.location.href = 'showAllAppInfo'" >返回</button>
-              <%--<button type="button" class="btn btn-primary" id="back">返回</button>--%>
+              <button type="button" class="btn btn-primary" onclick="window.location.href = 'showAllAppInfo'" >返回</button>
               <br/><br/>
             </div>
           </div>
