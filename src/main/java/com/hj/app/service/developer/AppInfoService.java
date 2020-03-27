@@ -5,11 +5,34 @@ import com.hj.app.domain.AppInfo;
 import java.util.List;
 
 public interface AppInfoService {
-
+    /**
+     * 根据条件查询所有的app信息
+     * @param querySoftwareName
+     * @param queryStatus
+     * @param queryCategoryLevel1
+     * @param queryCategoryLevel2
+     * @param queryCategoryLevel3
+     * @param queryPlatformId
+     * @param devId
+     * @param currentPageNo
+     * @param pageSize
+     * @return
+     */
     List<AppInfo> getAppInfoList(String querySoftwareName, Integer queryStatus, Integer queryCategoryLevel1,
                                  Integer queryCategoryLevel2, Integer queryCategoryLevel3, Integer queryPlatformId,
                                  Integer devId, Integer currentPageNo, Integer pageSize);
 
+    /**
+     * 根据条件查询app信息总数
+     * @param querySoftwareName
+     * @param queryStatus
+     * @param queryCategoryLevel1
+     * @param queryCategoryLevel2
+     * @param queryCategoryLevel3
+     * @param queryPlatformId
+     * @param devId
+     * @return
+     */
     int getAppInfoCount(String querySoftwareName, Integer queryStatus,
                         Integer queryCategoryLevel1, Integer queryCategoryLevel2,
                         Integer queryCategoryLevel3, Integer queryPlatformId, Integer devId);
@@ -41,6 +64,9 @@ public interface AppInfoService {
     AppInfo getAppInfo(Integer id, String APKName);
 
     /**
+     * 根据id删除applogo
+     * @param id
+     * @return
      */
     boolean deleteAppLogo(Integer id);
 

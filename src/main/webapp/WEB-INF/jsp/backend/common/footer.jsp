@@ -14,6 +14,6 @@
 <!-- /footer content -->
  </div>
     </div>
-<%@include file="js.jsp" %>
+<%@ include file="js.jsp" %>
  </body>
 </html>

@@ -1,6 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8"
-		 pageEncoding="UTF-8"%>
-<%@include file="common/header.jsp"%>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ include file="common/header.jsp"%>
 <div class="clearfix"></div>
 <div class="row">
 	<div class="col-md-12">
@@ -186,13 +185,13 @@
                       <ul class="dropdown-menu" role="menu">
                         <li>
                         	<c:choose>
-											<c:when test="${appInfo.status == 2 || appInfo.status == 5}">
-												<a class="saleSwichOpen" saleSwitch="open" appinfoid=${appInfo.id }  appsoftwarename=${appInfo.softwareName } data-toggle="tooltip" data-placement="top" title="" data-original-title="恭喜您，您的审核已经通过，您可以点击上架发布您的APP">上架</a>
-											</c:when>
-											<c:when test="${appInfo.status == 4}">
-												<a class="saleSwichClose" saleSwitch="close" appinfoid=${appInfo.id }  appsoftwarename=${appInfo.softwareName } data-toggle="tooltip" data-placement="top" title="" data-original-title="您可以点击下架来停止发布您的APP，市场将不提供APP的下载">下架</a>
-											</c:when>
-										</c:choose>
+								<c:when test="${appInfo.status == 2 || appInfo.status == 5}">
+									<a class="saleSwichOpen" saleSwitch="open" appinfoid=${appInfo.id }  appsoftwarename=${appInfo.softwareName } data-toggle="tooltip" data-placement="top" title="" data-original-title="恭喜您，您的审核已经通过，您可以点击上架发布您的APP">上架</a>
+								</c:when>
+								<c:when test="${appInfo.status == 4}">
+									<a class="saleSwichClose" saleSwitch="close" appinfoid=${appInfo.id }  appsoftwarename=${appInfo.softwareName } data-toggle="tooltip" data-placement="top" title="" data-original-title="您可以点击下架来停止发布您的APP，市场将不提供APP的下载">下架</a>
+								</c:when>
+							</c:choose>
                         </li>
                         <li><a class="addVersion" appinfoid="${appInfo.id }" data-toggle="tooltip" data-placement="top" title="" data-original-title="新增APP版本信息">新增版本</a>
                         </li>
@@ -259,6 +258,6 @@
 	</div>
 </div>
 </div>
-<%@include file="common/footer.jsp"%>
+<%@ include file="common/footer.jsp"%>
 <script src="${pageContext.request.contextPath }/statics/localjs/rollpage.js"></script>
 <script src="${pageContext.request.contextPath }/statics/localjs/appinfolist.js"></script>

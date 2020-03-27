@@ -43,21 +43,23 @@ public class DevAppInfoControl {
                                 @RequestParam(value = "queryCategoryLevel2", required = false) String _queryCategoryLevel2,
                                 @RequestParam(value = "queryCategoryLevel3", required = false) String _queryCategoryLevel3,
                                 @RequestParam(value = "pageIndex", required = false) String pageIndex) {
-
+        //获取登录的开发者的id
         Integer devId = ((DevUser)session.getAttribute(Constants.DEV_USER_SESSION)).getId();
 
         List<AppInfo> appInfoList;
+        //app状态下拉列表的取值
         List<DataDictionary> statusList;
+        //app所属平台下拉列表的取值
         List<DataDictionary> platFormList;
 
         //列出一级分类列表，二级和三级分类列表可通过异步ajax获取
         List<AppCategory> categoryLevel1List;
         List<AppCategory> categoryLevel2List;
         List<AppCategory> categoryLevel3List;
-
+        //页面容量
         int pageSize = Constants.pageSize;
+        //当前页码
         int currentPageNo = 1;
-
         if (pageIndex != null) {
             currentPageNo = Integer.parseInt(pageIndex);
         }
@@ -87,6 +89,7 @@ public class DevAppInfoControl {
             queryPlatformId = Integer.parseInt(_queryPlatformId);
         }
 
+        //总数量（列表）
         int totalCount;
         totalCount = appInfoService.getAppInfoCount(querySoftwareName, queryStatus, queryCategoryLevel1, queryCategoryLevel2,
                 queryCategoryLevel3, queryPlatformId, devId);
@@ -152,12 +155,22 @@ public class DevAppInfoControl {
 
     /**
      * 根据parentId查询出相应的分类级别列表
+     * @param pid
+     * @return
      */
-    @RequestMapping("/categorylevellist.json")
+    @RequestMapping(value = "/categorylevellist.json", method = RequestMethod.GET)
     @ResponseBody
     public List<AppCategory> getAppCategoryList(@RequestParam String pid) {
-        if (pid.equals("")) pid = null;
+        if (pid.equals("")) {
+            pid = null;
+        }
         return getCategoryList(pid);
+    }
+
+    public List<AppCategory> getCategoryList(String pid) {
+        List<AppCategory> categoryLevelList;
+        categoryLevelList = appCategoryService.getAppCategoryListByParentId(pid==null?null:Integer.parseInt(pid));
+        return categoryLevelList;
     }
 
     /**
@@ -175,13 +188,6 @@ public class DevAppInfoControl {
         } else {
             return 1;
         }
-    }
-
-
-    public List<AppCategory> getCategoryList (String pid) {
-        List<AppCategory> categoryLevelList;
-        categoryLevelList = appCategoryService.getAppCategoryListByParentId(pid==null?null:Integer.parseInt(pid));
-        return categoryLevelList;
     }
 
     /**
