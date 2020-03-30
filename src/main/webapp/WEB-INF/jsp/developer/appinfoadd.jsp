@@ -12,7 +12,7 @@
         <div class="clearfix"></div>
         <form class="form-horizontal form-label-left" action="appinfoaddsave" method="post" enctype="multipart/form-data">
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">软件名称 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">软件名称 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="softwareName" class="form-control col-md-7 col-xs-12" 
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">APK名称 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">APK名称 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="APKName" class="form-control col-md-7 col-xs-12" 
@@ -31,7 +31,7 @@
           </div>
           
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">支持ROM <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">支持ROM <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="supportROM" class="form-control col-md-7 col-xs-12" name="supportROM" 
@@ -40,7 +40,7 @@
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">界面语言 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">界面语言 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="interfaceLanguage" class="form-control col-md-7 col-xs-12" 
@@ -49,7 +49,7 @@
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">软件大小 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">软件大小 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="number" id="softwareSize" name="softwareSize"   required="required" onkeyup="value=value.replace(/[^\d]/g,'')"
@@ -58,7 +58,7 @@
           </div>
           
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">下载次数 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">下载次数 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="number" id="downloads" name="downloads"   required="required"
@@ -67,41 +67,41 @@
           </div>
           
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="select">所属平台 <span class="required">*</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">所属平台 <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="platformId" id="platformId" class="form-control"   required="required"></select>
             </div>
           </div>
           
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="select">一级分类 <span class="required">*</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">一级分类 <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="categoryLevel1" id="categoryLevel1" class="form-control"   required="required"> </select>
             </div>
           </div>
           
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="select">二级分类 <span class="required">*</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">二级分类 <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="categoryLevel2" id="categoryLevel2" class="form-control"  required="required"></select>
             </div>
           </div>
           
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="select">三级分类 <span class="required">*</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">三级分类 <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <select name="categoryLevel3" id="categoryLevel3" class="form-control"  required="required"></select>
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">APP状态 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">APP状态 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
             	<input type="hidden" name="status" id="status" value="1">待审核
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">应用简介 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">应用简介 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <textarea id="appInfo" name="appInfo"     required="required"
@@ -109,7 +109,7 @@
             </div>
           </div>
            <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">LOGO图片 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">LOGO图片 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="file" class="form-control col-md-7 col-xs-12" name="a_logoPicPath"  required="required" id="a_logoPicPath"/>
