@@ -54,8 +54,4 @@
             <if test="devInfo != null">devInfo=#{devInfo},</if>
         </trim>
     </update>
-
-    <!--<select id="checkUserName" resultType="String">-->
-        <!--select devName from dev_user where devName=#{devName}-->
-    <!--</select>-->
 </mapper>

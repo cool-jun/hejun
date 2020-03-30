@@ -5,11 +5,11 @@ function delfile(id){
 		data:{id:id,flag:'apk'},//请求参数
 		dataType:"json",//ajax接口（请求url）返回的数据类型
 		success:function(data){//data：返回数据（json对象）
-			if (data.result == "success") {
+			if (data.result === "success") {
 				alert("删除成功！");
 				$("#uploadfile").show();
 				$("#apkFile").html('');
-			}else if (data.result == "failed") {
+			}else if (data.result === "failed") {
 				alert("删除失败！");
 			}
 		},

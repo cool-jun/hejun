@@ -258,12 +258,16 @@ public class DevAppInfoControl {
 
     /**
      * 增加appversion信息（跳转到新增app版本页面）
+     * @param appId
+     * @param fileUploadError
+     * @param appVersion
+     * @param model
+     * @return
      */
     @RequestMapping("/appversionadd")
     public String addVersion(@RequestParam(value="id") String appId,
                              @RequestParam(value="error", required = false) String fileUploadError,
                              AppVersion appVersion, Model model) {
-
         if (null != fileUploadError && fileUploadError.equals("error1")) {
             fileUploadError = Constants.FILEUPLOAD_ERROR_1;
         } else if (null != fileUploadError && fileUploadError.equals("error2")) {
@@ -271,7 +275,6 @@ public class DevAppInfoControl {
         } else if (null != fileUploadError && fileUploadError.equals("error3")) {
             fileUploadError = Constants.FILEUPLOAD_ERROR_3;
         }
-
         appVersion.setAppId(Integer.parseInt(appId));
         List<AppVersion> appVersionList;
 
@@ -284,8 +287,14 @@ public class DevAppInfoControl {
         model.addAttribute("fileUploadError", fileUploadError);
         return "developer/appversionadd";
     }
+
     /**
      * 保存新增appversion数据（子表）-上传该版本的apk包
+     * @param appVersion
+     * @param session
+     * @param request
+     * @param attach
+     * @return
      */
     @RequestMapping("/addversionsave")
     public String addVersionSave(AppVersion appVersion, HttpSession session, HttpServletRequest request,
@@ -400,6 +409,9 @@ public class DevAppInfoControl {
 
     /**
      * 查看app信息，包括app基本信息和版本信息列表（跳转到查看页面）
+     * @param id
+     * @param model
+     * @return
      */
     //@PathVariable是spring3.0的一个新功能：接收请求路径中占位符的值
     @RequestMapping("/appview/{id}")
@@ -425,14 +437,15 @@ public class DevAppInfoControl {
 
     /**
      * 修改appInfo信息（跳转到修改appInfo页面）
-
+     * @param id
+     * @param fileUploadError
+     * @param model
+     * @return
      */
     @RequestMapping("/appinfomodify")
-    public String modifyAppInfo(@RequestParam("id") String id,
-                                @RequestParam(value = "error", required = false) String fileUploadError,
-                                Model model) {
+    public String modifyAppInfo(@RequestParam("id") String id, Model model,
+                                @RequestParam(value = "error", required = false) String fileUploadError) {
         AppInfo appInfo;
-
         if (null != fileUploadError && fileUploadError.equals("error1")) {
             fileUploadError = Constants.FILEUPLOAD_ERROR_1;
         }else if (null != fileUploadError && fileUploadError.equals("error2")) {
@@ -453,12 +466,15 @@ public class DevAppInfoControl {
 
     /**
      * 修改最新的appVersion信息（跳转到修改appVersion页面）
-
+     * @param versionId
+     * @param appId
+     * @param fileUploadError
+     * @param model
+     * @return
      */
     @RequestMapping("/appversionmodify")
-    public String modifyAppVersion(@RequestParam("vid") String versionId,
-                                   @RequestParam("aid") String appId,
-                                   @RequestParam(value="error",required= false)String fileUploadError,
+    public String modifyAppVersion(@RequestParam("vid") String versionId, @RequestParam("aid") String appId,
+                                   @RequestParam(value="error",required= false) String fileUploadError,
                                    Model model){
         AppVersion appVersion = null;
         List<AppVersion> appVersionList = null;
@@ -486,6 +502,11 @@ public class DevAppInfoControl {
 
     /**
      * 保存修改后的appVersion
+     * @param appVersion
+     * @param session
+     * @param request
+     * @param attach
+     * @return
      */
     @RequestMapping("/appversionmodifysave")
     public String modifyAppVersionSave(AppVersion appVersion, HttpSession session, HttpServletRequest request,
@@ -496,7 +517,6 @@ public class DevAppInfoControl {
         String apkFileName = null;
         if(!attach.isEmpty()){
             String path = request.getSession().getServletContext().getRealPath("statics"+File.separator+"uploadfiles");
-
             String oldFileName = attach.getOriginalFilename();//原文件名
             String prefix = FilenameUtils.getExtension(oldFileName);//原文件后缀
             if(prefix.equalsIgnoreCase("apk")){//apk文件命名：apk名称+版本号+.apk
@@ -550,6 +570,9 @@ public class DevAppInfoControl {
 
     /**
      * 修改操作时，删除文件（logo图片/apk文件），并更新数据库（app_info/app_version）
+     * @param flag
+     * @param id
+     * @return
      */
     @RequestMapping("/delfile")
     @ResponseBody
@@ -557,8 +580,7 @@ public class DevAppInfoControl {
                           @RequestParam(value="id",required=false) String id){
         HashMap<String, String> resultMap = new HashMap<>();
         String fileLocPath;
-        if(flag == null || flag.equals("") ||
-                id == null || id.equals("")){
+        if(flag == null || flag.equals("") || id == null || id.equals("")){
             resultMap.put("result", "failed");
         }else if(flag.equals("logo")) {//删除logo图片（操作app_info）
             try {
@@ -592,6 +614,11 @@ public class DevAppInfoControl {
 
     /**
      * 保存修改后的appInfo
+     * @param appInfo
+     * @param session
+     * @param request
+     * @param attach
+     * @return
      */
     @RequestMapping("/appinfomodifysave")
     public String modifySave(AppInfo appInfo, HttpSession session, HttpServletRequest request,
@@ -644,7 +671,11 @@ public class DevAppInfoControl {
         return "developer/appinfomodify";
     }
 
-    //删除app
+    /**
+     * 删除app
+     * @param id
+     * @return
+     */
     @RequestMapping(value="/delapp.json")
     @ResponseBody
     public Object delApp(@RequestParam String id){
@@ -663,47 +694,4 @@ public class DevAppInfoControl {
         }
         return JSONArray.toJSONString(resultMap);
     }
-
-
-
-//    @RequestMapping("/showAppInfo")
-//    public String listAllAppInfo(HttpSession session) {
-//        return appInfoService.listAllAppInfo(session);
-//    }
-//
-//    @RequestMapping("/selectAppsByPage")
-//    public String selectAppsByPage(Integer pageNow, String softwareName, String interfacelanguage, Model model) {
-//
-//        //map对象存储传入的值
-//        Map<String, Object> params = new HashMap<>();
-//
-//        if (pageNow != null) {
-//            params.put("pageNow", pageNow);
-//        }
-//
-//        if (softwareName != null && softwareName.length() > 0) {
-//            params.put("softwareName", "%"+softwareName+"%");
-//        }
-//
-//        if (interfaceLanguage != null && !interfaceLanguage.equals("-1")) {
-//            params.put("interfaceLanguage", interfaceLanguage);
-//        }
-//
-//        PageInfoFor<AppInfo> pageInfo = appInfoService.allAppsByPage(params);
-//
-//        model.addAttribute("pageInfo", pageInfo);
-//
-//        return "appsList";
-//    }
-//
-//    @RequestMapping("/toAppInfoAdd")
-//    public String toAppInfoAdd() {
-//        return "developer/appinfoadd";
-//    }
-//
-//    @RequestMapping("/appInfoAddSave")
-//    public String appInfoAddSave() {
-//        return "";
-//    }
-
 }

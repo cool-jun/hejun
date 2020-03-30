@@ -77,5 +77,4 @@ public class DevManageControl {
         devService.modifyDevUser(id, devCode, devName, devEmail, devInfo);
         return "backend/main";
     }
-
 }

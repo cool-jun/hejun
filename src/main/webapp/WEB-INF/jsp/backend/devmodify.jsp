@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 13698
-  Date: 2020/1/4
-  Time: 10:03
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="common/header.jsp"%>
 <div class="clearfix"></div>
@@ -19,7 +12,7 @@
                 <form class="form-horizontal form-label-left" action="devinfomodifysave" method="post">
                     <input type="hidden" name="id" id="id" value="${dev.id}">
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">开发者名称<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">开发者名称<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input id="devName" class="form-control col-md-7 col-xs-12"
@@ -29,7 +22,7 @@
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">开发者账号 <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">开发者账号 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input id="devCode" type="text" class="form-control col-md-7 col-xs-12"
@@ -38,7 +31,7 @@
                     </div>
 
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">开发者邮箱<span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">开发者邮箱<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input id="devEmail" class="form-control col-md-7 col-xs-12"
@@ -48,7 +41,7 @@
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">开发者信息 <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">开发者信息 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
               <textarea id="devInfo" name="devInfo" required="required"
@@ -70,4 +63,3 @@
     </div>
 </div>
 <%@ include file="common/footer.jsp"%>
-<%--<script src="${pageContext.request.contextPath }/statics/localjs/appinfomodify.js"></script>--%>

@@ -75,8 +75,11 @@ public class AppInfoServiceImpl implements AppInfoService {
                 if(appVersion.getApkLocPath() != null && !appVersion.getApkLocPath().equals("")){
                     File file = new File(appVersion.getApkLocPath());
                     if(file.exists()){
-                        if(!file.delete())
+                        if(!file.delete()) {
                             System.out.println("fail to delete file");
+                        } else {
+                            System.out.println("delete file success");
+                        }
                     }
                 }
             }
@@ -91,6 +94,8 @@ public class AppInfoServiceImpl implements AppInfoService {
             if(file.exists()){
                 if(!file.delete()) {
                     System.out.println("fail to delete file");
+                } else {
+                    System.out.println("delete file success");
                 }
             }
         }
@@ -189,36 +194,4 @@ public class AppInfoServiceImpl implements AppInfoService {
         appVersionMapper.modify(appVersion);
         return false;
     }
-
-
-    //    @Override
-//    public String listAllAppInfo(HttpSession session) {
-//        List<AppInfo> list = appInfoMapper.listAllAppInfo();
-//        if (list.size() > 0) {
-//            session.setAttribute("allAppInfo", list);
-//            System.out.println(list);
-//        } else {
-//            System.out.println("not find data!");
-//        }
-//        return "developer/appinfolist";
-//    }
-//
-//    @Override
-//    public PageInfoFor<AppInfo> allAppsByPage(Map<String, Object> params) {
-//        PageInfoFor<AppInfo> pageInfo = new PageInfoFor<>();
-//
-//        if(params.containsKey("pageNow")) {
-//            Integer pageNow = (Integer) params.get("pageNow");
-//            pageInfo.setPageNow(pageNow);
-//        }
-//
-//        pageInfo.setCount(appInfoMapper.countApps(params));
-//
-//        params.put("start", (pageInfo.getPageNow()-1)*pageInfo.getPageSize());
-//        params.put("size", pageInfo.getPageSize());
-//
-//        pageInfo.setList(appInfoMapper.selectByPage(params));
-//        return pageInfo;
-//
-//    }
 }

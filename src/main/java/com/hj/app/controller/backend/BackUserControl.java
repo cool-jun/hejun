@@ -14,12 +14,12 @@ public class BackUserControl {
     @Resource
     private BackendUserService backendUserService;
 
-    @RequestMapping("/toBackEndUserLogin")
+    @RequestMapping("/tobackendlogin")
     public String toBackUser() {
         return "backendlogin";
     }
 
-    @RequestMapping("/backEndUserLogin")
+    @RequestMapping("/backenduserlogin")
     public String backUserLogin(String userCode, String userPassword,
                                 HttpServletRequest request, HttpSession session) {
         BackendUser backendUser = backendUserService.getBackendUser(userCode);

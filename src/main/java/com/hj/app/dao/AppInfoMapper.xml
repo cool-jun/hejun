@@ -135,7 +135,7 @@
 
     <update id="deleteAppLogo" parameterType="Integer">
         update app_info
-        set logoPicPath=null,
+        set logoPicPath = null,
             logoLocPath = null
         where id = #{id}
     </update>
@@ -151,32 +151,4 @@
         set status=#{status}
         where id = #{id}
     </update>
-
-    <!--<select id="countApps" resultType="int">-->
-        <!--select count(1) from app_info-->
-        <!--<where>-->
-            <!--<if test="params.softwareName != null">-->
-                <!--and softwareName like #{params.softwareName}-->
-            <!--</if>-->
-            <!--<if test="params.interfacelanguage != null">-->
-                <!--and interfacelanguage = #{params.interfacelanguage}-->
-            <!--</if>-->
-        <!--</where>-->
-    <!--</select>-->
-
-    <!--<select id="selectByPage" resultType="AppInfo">-->
-        <!--select * from app_info-->
-        <!--<where>-->
-            <!--<if test="params.softwareName != null">-->
-                <!--and softwareName like #{params.softwareName}-->
-            <!--</if>-->
-            <!--<if test="params.interfaceLanguage != null">-->
-                <!--and interfaceLanguage = #{params.interfaceLanguage}-->
-            <!--</if>-->
-        <!--</where>-->
-        <!--<if test="params.start != null and params.size != null">-->
-            <!--limit #{params.start},#{params.size}-->
-        <!--</if>-->
-    <!--</select>-->
-
 </mapper>

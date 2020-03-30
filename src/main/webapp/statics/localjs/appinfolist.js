@@ -61,10 +61,8 @@ $("#queryCategoryLevel2").change(function(){
 			}
 		});
 	}else{
-		// $("#queryCategoryLevel3").html("");
 		level3.html();
 		var options = "<option value=\"\">--请选择--</option>";
-		// $("#queryCategoryLevel3").html(options);
 		level3.html(options);
 	}
 });
@@ -80,7 +78,7 @@ $(".modifyVersion").on("click",function() {
 	var status = obj.attr("status");
 	var versionid = obj.attr("versionid");
 	var appinfoid = obj.attr("appinfoid");
-	if(status === "1" || status === "3"){//待审核、审核未通过状态下才可以进行修改操作
+	if(status === "1" || status === "3"){  //待审核、审核未通过状态下才可以进行修改操作
 		if(versionid == null || versionid === ""){
 			alert("该APP应用无版本信息，请先增加版本信息！");
 		}else{
@@ -94,7 +92,7 @@ $(".modifyVersion").on("click",function() {
 $(".modifyAppInfo").on("click",function(){
 	var obj = $(this);
 	var status = obj.attr("status");
-	if(status === "1" || status === "3"){//待审核、审核未通过状态下才可以进行修改操作
+	if(status === "1" || status === "3"){  //待审核、审核未通过状态下才可以进行修改操作
 		window.location.href="appinfomodify?id="+ obj.attr("appinfoid");
 	}else{
 		alert("该APP应用的状态为：【"+obj.attr("statusname")+"】,不能修改！");
@@ -180,6 +178,7 @@ var saleSwitchAjax = function(appId, obj) {
 
 $(".viewApp").on("click",function(){
 	var obj = $(this);
+	// rest请求方式
 	window.location.href="appview/"+ obj.attr("appinfoid");
 });
 
@@ -194,6 +193,7 @@ $(".deleteApp").on("click",function(){
 			success:function(data){
 				if(data.delResult === "true"){//删除成功：移除删除行
 					alert("删除成功");
+					// 删除这一行
 					obj.parents("tr").remove();
 				}else if(data.delResult === "false"){//删除失败
 					alert("对不起，删除AAP应用【"+obj.attr("appsoftwarename")+"】失败");

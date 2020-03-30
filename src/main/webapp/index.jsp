@@ -19,7 +19,7 @@
 <div class="login_wrapper">
     <h1>APP信息管理平台</h1>
     <div>
-        <a href="toBackEndUserLogin" class="btn btn-link">后台管理系统入口</a>
+        <a href="tobackendlogin" class="btn btn-link">后台管理系统入口</a>
     </div>
     <div>
         <a href="todevlogin" class="btn btn-link">开发者平台入口</a>

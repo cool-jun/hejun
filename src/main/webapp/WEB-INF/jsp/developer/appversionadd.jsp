@@ -86,7 +86,7 @@
         <form class="form-horizontal form-label-left" action="addversionsave" method="post" enctype="multipart/form-data">
            <input id="appId" type="hidden" name="appId" value="${appVersion.appId}">
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">版本号 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">版本号 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="versionNo" class="form-control col-md-7 col-xs-12" 
@@ -95,7 +95,7 @@
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">版本大小 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">版本大小 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="number" id="versionSize" name="versionSize"  required="required"
@@ -104,14 +104,14 @@
           </div>
        
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="select">发布状态 <span class="required">*</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">发布状态 <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="hidden" name="publishStatus" id="publishStatus" value="3">预发布
             </div>
           </div>
         
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">版本简介 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">版本简介 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <textarea id="versionInfo" name="versionInfo" required="required"
@@ -119,7 +119,7 @@
             </div>
           </div>
            <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">apk文件 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">apk文件 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="file" class="form-control col-md-7 col-xs-12" name="a_downloadLink" id="a_downloadLink"  required="required"/>

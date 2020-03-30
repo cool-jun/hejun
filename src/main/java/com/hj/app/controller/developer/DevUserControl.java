@@ -49,6 +49,6 @@ public class DevUserControl {
     public String logout(HttpSession session) {
         //清除session信息
         session.removeAttribute(Constants.DEV_USER_SESSION);
-        return "devlogin";
+        return "../../index";
     }
 }

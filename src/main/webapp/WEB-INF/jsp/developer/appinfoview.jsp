@@ -16,7 +16,7 @@
         <form class="form-horizontal form-label-left" >
           <input type="hidden" name="id" value="${appInfo.id}">
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">软件名称 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">软件名称 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input class="form-control col-md-7 col-xs-12" value="${appInfo.softwareName}" 
@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">APK名称 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">APK名称 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="text" class="form-control col-md-7 col-xs-12" 
@@ -33,7 +33,7 @@
           </div>
           
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">支持ROM <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">支持ROM <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input class="form-control col-md-7 col-xs-12" 
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">界面语言 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">界面语言 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input class="form-control col-md-7 col-xs-12" readonly="readonly"
@@ -49,7 +49,7 @@
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">软件大小 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">软件大小 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="text" value="${appInfo.softwareSize}"
@@ -58,7 +58,7 @@
           </div>
           
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">下载次数 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">下载次数 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="text" value="${appInfo.downloads}"
@@ -67,21 +67,21 @@
           </div>
           
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="select">所属平台 <span class="required">*</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">所属平台 <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="text" class="form-control col-md-7 col-xs-12" 
               	value="${appInfo.platformName}" readonly="readonly">
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="select">所属分类 <span class="required">*</span></label>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">所属分类 <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input type="text" class="form-control col-md-7 col-xs-12" 
               	value="${appInfo.categoryLevel1Name} --> ${appInfo.categoryLevel2Name} --> ${appInfo.categoryLevel3Name}" readonly="readonly">
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">APP状态 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">APP状态 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
             	<input type="text" class="form-control col-md-7 col-xs-12" 
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">应用简介 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">应用简介 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <textarea class="form-control col-md-7 col-xs-12" readonly="readonly"> 
@@ -97,7 +97,7 @@
             </div>
           </div>
            <div class="item form-group">
-            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">LOGO图片 <span class="required">*</span>
+            <label class="control-label col-md-3 col-sm-3 col-xs-12">LOGO图片 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
 			 <c:choose> 
@@ -105,7 +105,7 @@
 				    	暂无
 				  </c:when> 
 				  <c:otherwise>   
-				    <img src="${appInfo.logoPicPath }?m=1" width="100px;"/> 
+				    <img src="${appInfo.logoPicPath }?m=1" width="100px;" alt=""/>
 				  </c:otherwise> 
               </c:choose> 
             </div>

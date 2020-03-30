@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="common/header.jsp"%>
 <div class="clearfix"></div>
 <div class="row">

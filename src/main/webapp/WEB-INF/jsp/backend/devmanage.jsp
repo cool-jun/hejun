@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 13698
-  Date: 2020/1/3
-  Time: 20:29
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="common/header.jsp"%>
 <div class="clearfix"></div>
@@ -96,7 +89,6 @@
                                 <tbody>
                                 <c:forEach var="devInfo" items="${devInfoList}" varStatus="status">
                                     <tr role="row" class="odd">
-                                        <%--<td tabindex="0" class="sorting_1">${devInfo.softwareName}</td>--%>
                                         <td>${devInfo.id }</td>
                                         <td>${devInfo.devCode }</td>
                                         <td>${devInfo.devName }</td>
