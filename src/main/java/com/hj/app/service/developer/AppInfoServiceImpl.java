@@ -110,11 +110,11 @@ public class AppInfoServiceImpl implements AppInfoService {
     public boolean appsysUpdateSaleStatusByAppId(AppInfo appInfoObj) throws Exception {
         /*
 		 * 上架：
-			1 更改status由【2 or 5】 to 4 ， 上架时间
-			2 根据versionid 更新 publishStauts 为 2
+			1 更改status由【2 or 5】 to 4，上架时间
+			2 根据versionid 更新 publishStatus 为2
 
 			下架：
-			更改status 由4给为5
+			更改status 由4该为5
 		 */
 
         Integer operator = appInfoObj.getModifyBy();
@@ -137,7 +137,6 @@ public class AppInfoServiceImpl implements AppInfoService {
                 case 4://当状态为上架时，可以进行下架操作
                     offSale(appInfo,operator,5);
                     break;
-
                 default:
                     return false;
             }
@@ -163,7 +162,7 @@ public class AppInfoServiceImpl implements AppInfoService {
     /**
      * on Sale
      */
-    private void onSale(AppInfo appInfo,Integer operator,Integer appInfStatus,Integer versionStatus) throws Exception{
+    private void onSale(AppInfo appInfo,Integer operator,Integer appInfStatus,Integer versionStatus) {
         offSale(appInfo,operator,appInfStatus);
         setSaleSwitchToAppVersion(appInfo,operator,versionStatus);
     }
@@ -172,26 +171,24 @@ public class AppInfoServiceImpl implements AppInfoService {
     /**
      * offSale
      */
-    private boolean offSale(AppInfo appInfo,Integer operator,Integer appInfStatus) throws Exception{
+    private void offSale(AppInfo appInfo,Integer operator,Integer appInfStatus) {
         AppInfo _appInfo = new AppInfo();
         _appInfo.setId(appInfo.getId());
         _appInfo.setStatus(appInfStatus);
         _appInfo.setModifyBy(operator);
         _appInfo.setOffSaleDate(new Date(System.currentTimeMillis()));
         appInfoMapper.modify(_appInfo);
-        return true;
     }
 
     /**
      * set sale method to on or off
      */
-    private boolean setSaleSwitchToAppVersion(AppInfo appInfo,Integer operator,Integer saleStatus) throws Exception{
+    private void setSaleSwitchToAppVersion(AppInfo appInfo,Integer operator,Integer saleStatus) {
         AppVersion appVersion = new AppVersion();
         appVersion.setId(appInfo.getVersionId());
         appVersion.setPublishStatus(saleStatus);
         appVersion.setModifyBy(operator);
         appVersion.setModifyDate(new Date(System.currentTimeMillis()));
         appVersionMapper.modify(appVersion);
-        return false;
     }
 }

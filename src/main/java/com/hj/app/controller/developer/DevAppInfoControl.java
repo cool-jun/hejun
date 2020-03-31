@@ -361,7 +361,7 @@ public class DevAppInfoControl {
         }
         resultMap.put("errorCode", "0");
         resultMap.put("appId", appid);
-        if(appIdInteger>0){
+        if (appIdInteger > 0) {
             try {
                 DevUser devUser = (DevUser)session.getAttribute(Constants.DEV_USER_SESSION);
                 AppInfo appInfo = new AppInfo();
@@ -370,7 +370,7 @@ public class DevAppInfoControl {
                 if(appInfoService.appsysUpdateSaleStatusByAppId(appInfo)){
                     resultMap.put("resultMsg", "success");
                 }else{
-                    resultMap.put("resultMsg", "success");
+                    resultMap.put("resultMsg", "failed");
                 }
             } catch (Exception e) {
                 resultMap.put("errorCode", "exception000001");
