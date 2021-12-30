@@ -1,2 +1,2 @@
 # hejun
-This is a app management system based on springboot-mybatis framework. 
+This is a app management system based on ssm framework. 
